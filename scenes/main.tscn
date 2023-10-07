@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4ty66vir1xgs"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_xo5ox"]
+[ext_resource type="Texture2D" uid="uid://817v8hmf2jho" path="res://assets/MainBG.png" id="2_5r21f"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_xo5ox")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_5r21f")
+centered = false
+
+[node name="player_select" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="OnePlayer" type="Button" parent="player_select"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 272.0
+offset_right = 648.0
+offset_bottom = 422.0
+text = "One Player"
+
+[node name="TwoPlayer" type="Button" parent="player_select"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 444.0
+offset_right = 648.0
+offset_bottom = 594.0
+text = "Two Player
+"
+
+[node name="difficulty_select" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EasyDifficulty" type="Button" parent="difficulty_select"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 240.0
+offset_right = 648.0
+offset_bottom = 340.0
+text = "Easy Difficulty"
+
+[node name="StandardDifficulty" type="Button" parent="difficulty_select"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 360.0
+offset_right = 648.0
+offset_bottom = 460.0
+text = "Standard Difficulty"
+
+[node name="ImpossibleDifficulty" type="Button" parent="difficulty_select"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 480.0
+offset_right = 648.0
+offset_bottom = 580.0
+text = "Impossible Difficulty"
+
+[node name="GoBack" type="Button" parent="difficulty_select"]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 600.0
+offset_right = 648.0
+offset_bottom = 700.0
+text = "Go Back"
+
+[connection signal="pressed" from="player_select/OnePlayer" to="." method="_on_one_player_pressed"]
+[connection signal="pressed" from="player_select/TwoPlayer" to="." method="_on_two_player_pressed"]
+[connection signal="pressed" from="difficulty_select/EasyDifficulty" to="." method="_on_easy_difficulty_pressed"]
+[connection signal="pressed" from="difficulty_select/StandardDifficulty" to="." method="_on_standard_difficulty_pressed"]
+[connection signal="pressed" from="difficulty_select/ImpossibleDifficulty" to="." method="_on_impossible_difficulty_pressed"]
+[connection signal="pressed" from="difficulty_select/GoBack" to="." method="_on_go_back_pressed"]
